@@ -1,22 +1,19 @@
-
 package com.java.proyectociclo4.vista;
 
 public class PanelPrincipal extends javax.swing.JFrame {
-
 
     public PanelPrincipal() {
         initComponents();
         setLocationRelativeTo(null);
     }
 
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnCrear = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
+        btnCrearNuevoFormulario = new javax.swing.JButton();
+        btnModificarCategorias = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -29,20 +26,20 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnCrear.setBackground(new java.awt.Color(102, 51, 255));
-        btnCrear.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
-        btnCrear.setForeground(new java.awt.Color(255, 255, 255));
-        btnCrear.setText("Crear nuevo formulario");
-        btnCrear.addActionListener(new java.awt.event.ActionListener() {
+        btnCrearNuevoFormulario.setBackground(new java.awt.Color(102, 51, 255));
+        btnCrearNuevoFormulario.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
+        btnCrearNuevoFormulario.setForeground(new java.awt.Color(255, 255, 255));
+        btnCrearNuevoFormulario.setText("Crear nuevo formulario");
+        btnCrearNuevoFormulario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearActionPerformed(evt);
+                btnCrearNuevoFormularioActionPerformed(evt);
             }
         });
 
-        btnModificar.setBackground(new java.awt.Color(102, 51, 255));
-        btnModificar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
-        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
-        btnModificar.setText("Modificar categorias");
+        btnModificarCategorias.setBackground(new java.awt.Color(102, 51, 255));
+        btnModificarCategorias.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
+        btnModificarCategorias.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificarCategorias.setText("Modificar categorias");
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -94,8 +91,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(121, 121, 121)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnModificarCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCrearNuevoFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(9, 9, 9)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,7 +111,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addComponent(jLabel3)
                 .addGap(47, 47, 47)
-                .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCrearNuevoFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jLabel1)
                 .addGap(26, 26, 26)
@@ -124,7 +121,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnModificarCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(125, 125, 125))
         );
 
@@ -142,9 +139,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+    private void btnCrearNuevoFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearNuevoFormularioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCrearActionPerformed
+    }//GEN-LAST:event_btnCrearNuevoFormularioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,8 +179,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCrear;
-    private javax.swing.JButton btnModificar;
+    public javax.swing.JButton btnCrearNuevoFormulario;
+    public javax.swing.JButton btnModificarCategorias;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
