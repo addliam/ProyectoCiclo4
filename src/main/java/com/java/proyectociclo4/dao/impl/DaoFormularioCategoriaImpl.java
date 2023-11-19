@@ -26,20 +26,19 @@ public class DaoFormularioCategoriaImpl implements DaoFormularioCategoria {
 
         // Ctrl + Shift + Abajo (atajo duplicar linea)        
         sql.append("INSERT INTO formulario_categorias(")
-                .append("formulario_categoria_id,")
                 .append("formulario_id,")
-                .append("categoria_id,")
-                .append(") VALUES (?,?,?)");
+                .append("categoria_id")
+                .append(") VALUES (?,?)");
+        System.out.println(sql.toString());
         try (Connection con = conexionBaseDatos.connecta()) {
             PreparedStatement ps = con.prepareCall(sql.toString());
-            ps.setString(1, formularioCategoria.getFormularioCategoria());
-            ps.setString(2, formularioCategoria.getFormularioId());
-            ps.setString(3, formularioCategoria.getCategoriaId());
+            ps.setInt(1, formularioCategoria.getFormularioId());
+            ps.setInt(2, formularioCategoria.getCategoriaId());
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     formularioCategoria1 = new FormularioCategoria(rs.getString(1),
-                            rs.getString(2),
-                            rs.getString(3));
+                            rs.getInt(2),
+                            rs.getInt(3));
                 } else {
                     formularioCategoria1 = null;
                 }
@@ -61,17 +60,17 @@ public class DaoFormularioCategoriaImpl implements DaoFormularioCategoria {
         sql.append("SELECT ")
                 .append("formulario_categoria_id,")
                 .append("formulario_id,")
-                .append("categoria_id,")
+                .append("categoria_id")
                 .append(" FROM formulario_categorias WHERE formulario_categoria_id = ?");
-
+        System.out.println(sql.toString());
         try (Connection con = conexionBaseDatos.connecta()) {
             PreparedStatement ps = con.prepareCall(sql.toString());
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     formCategoria = new FormularioCategoria(rs.getString(1),
-                            rs.getString(2),
-                            rs.getString(3));
+                            rs.getInt(2),
+                            rs.getInt(3));
                 } else {
                     formCategoria = null;
                 }
@@ -82,14 +81,6 @@ public class DaoFormularioCategoriaImpl implements DaoFormularioCategoria {
             System.out.println(e);
         }
         return formCategoria;
-    }
-
-    public void formularioCategoriaLeer(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public FormularioCategoria formularioCategoriaCrear(String formularioCategoria) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

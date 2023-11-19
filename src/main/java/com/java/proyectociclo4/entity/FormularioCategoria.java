@@ -1,47 +1,54 @@
-
 package com.java.proyectociclo4.entity;
 
 public class FormularioCategoria {
-    private String formularioCategoria;
-    private String formularioId;
-    private String categoriaId;
+
+    private String formularioCategoriaId;
+    private Integer formularioId;
+    private Integer categoriaId;
 
     @Override
     public String toString() {
-        return "Categoria del Formulario : " + formularioCategoria +
-                "\nId Formulario : " + formularioId + 
-                "\nId Categoria : " + categoriaId;
+        return "Categoria del Formulario : " + formularioCategoriaId
+                + "\nId Formulario : " + formularioId
+                + "\nId Categoria : " + categoriaId;
     }
 
-    public FormularioCategoria(String formularioCategoria, String formularioId, String categoriaId) {
-        this.formularioCategoria = formularioCategoria;
+    public FormularioCategoria() {
+    }
+
+    public FormularioCategoria(String formularioCategoriaId, Integer formularioId, Integer categoriaId) {
+        this.formularioCategoriaId = formularioCategoriaId;
         this.formularioId = formularioId;
         this.categoriaId = categoriaId;
     }
 
-    public String getCategoriaId() {
-        return categoriaId;
+    public String getFormularioCategoriaId() {
+        return formularioCategoriaId;
     }
 
-    public void setCategoriaId(String categoriaId) {
-        this.categoriaId = categoriaId;
+    public void setFormularioCategoriaId(String formularioCategoriaId) {
+        this.formularioCategoriaId = formularioCategoriaId;
     }
 
-    public String getFormularioCategoria() {
-        return formularioCategoria;
-    }
-
-    public void setFormularioCategoria(String formularioCategoria) {
-        this.formularioCategoria = formularioCategoria;
-    }
-
-    public String getFormularioId() {
+    public Integer getFormularioId() {
         return formularioId;
     }
 
-    public void setFormularioId(String formularioId) {
+    public void setFormularioId(Integer formularioId) {
         this.formularioId = formularioId;
     }
+
+    public Integer getCategoriaId() {
+        return categoriaId;
+    }
+
+    public void setCategoriaId(Integer categoriaId) {
+        this.categoriaId = categoriaId;
+    }
+
     
     
+
+   
+
 }
