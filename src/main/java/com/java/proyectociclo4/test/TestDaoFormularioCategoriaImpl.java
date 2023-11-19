@@ -15,6 +15,7 @@ public class TestDaoFormularioCategoriaImpl {
         FormularioCategoria fmc = daoFormularioCategoriaImpl.formularioCategoriaLeer(2);
         FormularioCategoria authFormularioCategoria = daoFormularioCategoriaImpl.formularioCategoriaCrear("formularioCategoria");
         System.out.println(authFormularioCategoria);
+
     }
 
 }
