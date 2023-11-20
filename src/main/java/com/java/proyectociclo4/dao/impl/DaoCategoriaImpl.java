@@ -74,14 +74,11 @@ public class DaoCategoriaImpl implements DaoCategoria {
             PreparedStatement ps = con.prepareCall(sql.toString());
             ps.setInt(1, categoria.getClienteId());
             ps.setString(2, categoria.getNombre());
-            try (ResultSet resultSet = ps.executeQuery()) {
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            int columnas = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
         }
-        return "Categoría creada exitosamente";
+        return "";
     }
 
     @Override
