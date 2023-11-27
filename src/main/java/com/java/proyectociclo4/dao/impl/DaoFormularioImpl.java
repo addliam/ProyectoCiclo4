@@ -41,7 +41,7 @@ public class DaoFormularioImpl implements DaoFormulario{
 
         try (Connection con = conexionBaseDatos.connecta()) {
             PreparedStatement ps = con.prepareCall(sql.toString());            
-            ps.setString(1, formulario.getFormulariold());
+            ps.setString(1, formulario.getFormularioId());
             ps.setInt   (2, formulario.getClienteId());
             ps.setString(3, formulario.getSlug());
             ps.setString(4, formulario.getUrlWeb());

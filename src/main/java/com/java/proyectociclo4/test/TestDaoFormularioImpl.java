@@ -14,9 +14,7 @@ import java.util.List;
  */
 public class TestDaoFormularioImpl {
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String[] args) {
         //leer formulario
         DaoFormularioImpl daoFormularioImpl = new DaoFormularioImpl();
@@ -28,7 +26,7 @@ public class TestDaoFormularioImpl {
         
         //leer formulario por cliente
         DaoFormularioImpl daoFormImpl = new DaoFormularioImpl();       
-        Integer clienteId = 1;
+        Integer clienteId = 0;
         List<Formulario> formularios = daoFormImpl.leerFormularioPorCliente(clienteId);
         for (Formulario formulario : formularios) {
             System.out.println(formulario);

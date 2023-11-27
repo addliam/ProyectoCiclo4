@@ -1,13 +1,11 @@
-
 package com.java.proyectociclo4.entity;
 
 /**
  *
  * @author Daygo
  */
-
 public class Formulario {
-    
+
     private String formularioId;
     private Integer clienteId;
     private String slug;
@@ -15,10 +13,10 @@ public class Formulario {
 
     @Override
     public String toString() {
-        return "Formulario : " + formularioId + 
-               "\nCliented : " + clienteId + 
-               "\nSlug : " + slug + 
-               "\nUrlWeb=" + urlWeb + '}';
+        return "Formulario : " + formularioId
+                + "\nCliented : " + clienteId
+                + "\nSlug : " + slug
+                + "\nUrlWeb=" + urlWeb + '}';
     }
 
     public Formulario(String formularioId, Integer cliented, String slug, String urlWeb) {
@@ -28,11 +26,11 @@ public class Formulario {
         this.urlWeb = urlWeb;
     }
 
-    public String getFormulariold() {
-        return formularioId;
+    public String getFormularioId() {
+        return  null;
     }
 
-    public void setFormulariold(String formularioId) {
+    public void setFormularioId(String formularioId) {
         this.formularioId = formularioId;
     }
 
@@ -59,5 +57,5 @@ public class Formulario {
     public void setUrlWeb(String urlWeb) {
         this.urlWeb = urlWeb;
     }
-    
+
 }
