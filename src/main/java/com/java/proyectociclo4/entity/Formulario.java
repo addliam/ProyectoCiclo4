@@ -5,42 +5,43 @@ package com.java.proyectociclo4.entity;
  *
  * @author Daygo
  */
+
 public class Formulario {
     
-    private String formulariold;
-    private Integer cliented;
+    private String formularioId;
+    private Integer clienteId;
     private String slug;
     private String urlWeb;
 
     @Override
     public String toString() {
-        return "Formulario : " + formulariold + 
-               "\nCliented : " + cliented + 
+        return "Formulario : " + formularioId + 
+               "\nCliented : " + clienteId + 
                "\nSlug : " + slug + 
                "\nUrlWeb=" + urlWeb + '}';
     }
 
-    public Formulario(String formulariold, Integer cliented, String slug, String urlWeb) {
-        this.formulariold = formulariold;
-        this.cliented = cliented;
+    public Formulario(String formularioId, Integer cliented, String slug, String urlWeb) {
+        this.formularioId = formularioId;
+        this.clienteId = cliented;
         this.slug = slug;
         this.urlWeb = urlWeb;
     }
 
     public String getFormulariold() {
-        return formulariold;
+        return formularioId;
     }
 
-    public void setFormulariold(String formulariold) {
-        this.formulariold = formulariold;
+    public void setFormulariold(String formularioId) {
+        this.formularioId = formularioId;
     }
 
-    public Integer getCliented() {
-        return cliented;
+    public Integer getClienteId() {
+        return clienteId;
     }
 
-    public void setCliented(Integer cliented) {
-        this.cliented = cliented;
+    public void setClienteId(Integer clienteId) {
+        this.clienteId = clienteId;
     }
 
     public String getSlug() {
