@@ -187,7 +187,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable tableCategoria;
-    private javax.swing.JTable tableFormulario;
+    public javax.swing.JTable tableCategoria;
+    public javax.swing.JTable tableFormulario;
     // End of variables declaration//GEN-END:variables
 }

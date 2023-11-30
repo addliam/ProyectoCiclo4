@@ -5,7 +5,9 @@
 package com.java.proyectociclo4.test;
 
 import com.java.proyectociclo4.controlador.PanelPrincipalControlador;
+import com.java.proyectociclo4.dao.impl.DaoCategoriaImpl;
 import com.java.proyectociclo4.dao.impl.DaoFormularioCategoriaImpl;
+import com.java.proyectociclo4.dao.impl.DaoFormularioImpl;
 import com.java.proyectociclo4.vista.PanelPrincipal;
 
 /**
@@ -19,8 +21,9 @@ public class TestPanelPrincipalControlador {
      */
     public static void main(String[] args) {
         PanelPrincipal vista = new PanelPrincipal();
-        DaoFormularioCategoriaImpl modelo = new DaoFormularioCategoriaImpl();
-        PanelPrincipalControlador controlador = new PanelPrincipalControlador(modelo, vista);
+        DaoCategoriaImpl modelo = new DaoCategoriaImpl();
+        DaoFormularioImpl modelo2 = new DaoFormularioImpl();
+        PanelPrincipalControlador controlador = new PanelPrincipalControlador(modelo, modelo2, vista);
         controlador.start();
     }
 
