@@ -6,6 +6,7 @@ import com.java.proyectociclo4.util.ConexionBaseDatos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  *
@@ -58,8 +59,45 @@ public class DaoClienteImpl implements DaoCliente {
         return cliente;
     }
 
-    public String clienteCrear(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    @Override
+    public Cliente clienteCrear(Cliente cliente) {
+        Cliente cl = null;
+        StringBuilder sql = new StringBuilder();
+
+        sql.append("INSERT INTO clientes (")
+                .append("email,")
+                .append("usuario,")
+                .append("password)")
+                .append(" VALUES (?,?,?)");
+
+        try (Connection con = conexionBaseDatos.connecta()) {
+            // para retornar el id debemos cambiar prepareCall por prepareStatement y agregar un 2do parametro Statement.RETURN_GENERATED_KEYS (no olvidar import java.sql.Statement;)
+            PreparedStatement ps = con.prepareStatement(sql.toString(),
+                    Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, cliente.getEmail());
+            ps.setString(2, cliente.getUsuario());
+            ps.setString(3, cliente.getPassword());
+            // ejecutar INSERT
+            int filasAfectadas = ps.executeUpdate();
+            if (filasAfectadas == 0) {
+                System.out.println("La inserción fallo, ningun registro afectado.");
+            }
+            try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    int id = generatedKeys.getInt(1);
+                    // asignar objeto con valores al objeto vacio inicialmente
+                    cl = cliente;
+                    cl.setClienteId(id);
+                } else {
+                    System.out.println("La inserción fallo, no se pudo obtener el ID generado.");
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return cl;
     }
 
     @Override

@@ -15,7 +15,7 @@ public interface DaoCliente {
 
     public Cliente clienteLeer(Integer id);
 
-    public String clienteCrear(Cliente cliente);
+    public Cliente clienteCrear(Cliente cliente);
 
     public Cliente autenticar(String usuario, String password);
 }

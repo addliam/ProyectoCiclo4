@@ -14,10 +14,14 @@ public class TestDaoClienteImpl {
      */
     public static void main(String[] args) {
         DaoClienteImpl daoCliente = new DaoClienteImpl();
-        Cliente cl = daoCliente.clienteLeer(2);
-//        System.out.println(cl);
-        Cliente authCliente = daoCliente.autenticar("testx@gmail.com", "password");
-        System.out.println(authCliente);
+//        Cliente cl = daoCliente.clienteLeer(2);
+////        System.out.println(cl);
+//        Cliente authCliente = daoCliente.autenticar("testx@gmail.com", "password");
+//        System.out.println(authCliente);
+//  
+        Cliente c1 = new Cliente("test3011-1211@gmail.com", "test3011-1211", "contrasena");
+        Cliente nuevoCliente = daoCliente.clienteCrear(c1);
+        System.out.println(nuevoCliente);
     }
 
 }
