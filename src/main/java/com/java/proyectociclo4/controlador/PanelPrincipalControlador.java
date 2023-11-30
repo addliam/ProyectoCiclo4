@@ -86,6 +86,7 @@ public class PanelPrincipalControlador implements ActionListener {
 
         }
         //como reducir el ancho de las colummas java swing
+
     }
 
     @Override
