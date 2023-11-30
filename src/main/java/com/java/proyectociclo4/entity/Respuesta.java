@@ -10,16 +10,31 @@ package com.java.proyectociclo4.entity;
  */
 public class Respuesta {
 
-   private Integer formularioId;
+    private String respuestaId;
+    private Integer formularioId;
     private String contenido;
     private Integer categoriaId;
     private String usuarioEmail;
 
-    public Respuesta(Integer formularioId, String contenido, Integer categoriaId, String usuarioEmail) {
+    @Override
+    public String toString() {
+        return "Respuesta{" + "respuestaId=" + respuestaId + ", formularioId=" + formularioId + ", contenido=" + contenido + ", categoriaId=" + categoriaId + ", usuarioEmail=" + usuarioEmail + '}';
+    }
+
+    public Respuesta(String respuestaId, Integer formularioId, String contenido, Integer categoriaId, String usuarioEmail) {
+        this.respuestaId = respuestaId;
         this.formularioId = formularioId;
         this.contenido = contenido;
         this.categoriaId = categoriaId;
         this.usuarioEmail = usuarioEmail;
+    }
+
+    public String getRespuestaId() {
+        return respuestaId;
+    }
+
+    public void setRespuestaId(String respuestaId) {
+        this.respuestaId = respuestaId;
     }
 
     public Integer getFormularioId() {
@@ -53,6 +68,5 @@ public class Respuesta {
     public void setUsuarioEmail(String usuarioEmail) {
         this.usuarioEmail = usuarioEmail;
     }
-
 
 }
