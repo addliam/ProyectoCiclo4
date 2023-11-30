@@ -10,7 +10,7 @@ import com.java.proyectociclo4.vista.PanelPrincipal;
 
 /**
  *
- * @author User
+ * @author Ocxros
  */
 public class TestPanelPrincipalControlador {
 

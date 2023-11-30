@@ -28,10 +28,8 @@ public class PanelPrincipalControlador implements ActionListener {
         //mapear funcionalidad del boton
         this.vista.btnCrearNuevoFormulario.addActionListener(this);
         this.vista.btnModificarCategorias.addActionListener(this);
-        //llamando metodos
         this.rellenarTablaCategoria();
         this.rellenarTablaFormulario();
-        //mostrar el formulario
         this.vista.setLocationRelativeTo(null);
         this.vista.setVisible(true);
     }
