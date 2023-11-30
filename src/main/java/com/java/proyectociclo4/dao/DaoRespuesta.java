@@ -5,6 +5,7 @@
 package com.java.proyectociclo4.dao;
 
 import com.java.proyectociclo4.entity.Respuesta;
+import com.java.proyectociclo4.entity.RespuestaCategoria;
 import java.util.List;
 
 /**
@@ -14,9 +15,6 @@ import java.util.List;
 public interface DaoRespuesta {
 
     public List<Respuesta> respuestaSelecPorFormulario(Integer formularioId);
+
+    public List<RespuestaCategoria> respuestaCategoriaSelecPorFormulario(Integer formularioId);
 }
-
-
-
-
-

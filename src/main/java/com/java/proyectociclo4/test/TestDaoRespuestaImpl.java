@@ -7,6 +7,7 @@ package com.java.proyectociclo4.test;
 
 import com.java.proyectociclo4.dao.impl.DaoRespuestaImpl;
 import com.java.proyectociclo4.entity.Respuesta;
+import com.java.proyectociclo4.entity.RespuestaCategoria;
 import java.util.List;
 
 /**
@@ -19,6 +20,10 @@ public class TestDaoRespuestaImpl {
         DaoRespuestaImpl dao = new DaoRespuestaImpl();
         List<Respuesta> respuestas = dao.respuestaSelecPorFormulario(1);
         for (Respuesta respuesta : respuestas) {
+            System.out.println(respuesta);
+        }
+        List<RespuestaCategoria> respuestas1 = dao.respuestaCategoriaSelecPorFormulario(1);
+        for (RespuestaCategoria respuesta : respuestas1) {
             System.out.println(respuesta);
         }
     }
