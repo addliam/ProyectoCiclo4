@@ -21,17 +21,15 @@ public class TestDaoFormularioImpl {
         Formulario fm = daoFormularioImpl.leerFormulario(2);
         
         //crear formulario
-        Formulario authFormulario = daoFormularioImpl.crearFormulario(fm);
-        System.out.println(authFormulario);
+        Formulario fm1 = new Formulario( 1, "11bf5b37-e0b8-42e0-8dcf-dc8c4aefc003", "http://google.com");
+        Formulario authFormulario = daoFormularioImpl.crearFormulario(fm1);
         
         //leer formulario por cliente
         DaoFormularioImpl daoFormImpl = new DaoFormularioImpl();       
-        Integer clienteId = 0;
+        Integer clienteId = 1;
         List<Formulario> formularios = daoFormImpl.leerFormularioPorCliente(clienteId);
         for (Formulario formulario : formularios) {
             System.out.println(formulario);
-            
-            //.
         }
     }
     }

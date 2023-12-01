@@ -17,43 +17,45 @@ import java.util.ArrayList;
 public class DaoFormularioImpl implements DaoFormulario {
 
     private final ConexionBaseDatos conexionBaseDatos;
-
+    
     public DaoFormularioImpl() {
         this.conexionBaseDatos = new ConexionBaseDatos();
     }
+
 
     @Override
     public Formulario crearFormulario(Formulario formulario) {
         Formulario formulario1 = null;
         StringBuilder sql = new StringBuilder();
-
+        
         // Ctrl + Shift + Abajo (atajo duplicar linea)        
-        sql.append("INSERT INTO formularios( ")
-                .append("formulario_id,")
+        sql.append("INSERT INTO formularios( ")                
                 .append("cliente_id,")
                 .append("slug,")
                 .append("url_web")
-                .append(") VALUES (?,?,?,?)");
+                .append(") VALUES (?,?,?)");
 
         try (Connection con = conexionBaseDatos.connecta()) {
-            PreparedStatement ps = con.prepareCall(sql.toString());
-            ps.setString(1, formulario.getFormularioId());
-            ps.setInt(2, formulario.getClienteId());
-            ps.setString(3, formulario.getSlug());
-            ps.setString(4, formulario.getUrlWeb());
-
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    formulario = new Formulario(rs.getString(1),
-                            rs.getInt(2),
-                            rs.getString(3),
-                            rs.getString(4));
-                } else {
-                    formulario = null;
-                }
-            } catch (Exception e) {
-                System.out.println(e);
+            PreparedStatement ps = con.prepareCall(sql.toString());                        
+            ps.setInt   (1, formulario.getClienteId());
+            ps.setString(2, formulario.getSlug());
+            ps.setString(3, formulario.getUrlWeb());
+            int affectedRows = ps.executeUpdate();
+            
+            if (affectedRows == 0) {
+                throw new SQLException("La inserción falló, ningún registro afectado.");
+                
             }
+            try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    int id = generatedKeys.getInt(1);
+                    formulario.setFormularioId(String.valueOf(id));
+                } else {
+                    throw new SQLException("La inserción falló, no se pudo obtener el ID generado.");
+                }
+            }
+                   //Falla obtencion de ID
+            
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -61,8 +63,8 @@ public class DaoFormularioImpl implements DaoFormulario {
     }
 
     @Override
-
-    public Formulario leerFormulario(Integer id) {
+    
+     public  Formulario leerFormulario(Integer id) {
         Formulario form = null;
         StringBuilder sql = new StringBuilder();
 
@@ -71,7 +73,7 @@ public class DaoFormularioImpl implements DaoFormulario {
                 .append("formulario_id,")
                 .append("cliente_id,")
                 .append("slug,")
-                .append("url_web,")
+                .append("url_web")
                 .append(" FROM formularios WHERE formulario_id = ?");
 
         try (Connection con = conexionBaseDatos.connecta()) {
@@ -79,10 +81,11 @@ public class DaoFormularioImpl implements DaoFormulario {
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    form = new Formulario(rs.getString(1),
-                            rs.getInt(2),
+                    form = new Formulario(
+                            rs.getInt   (2),
                             rs.getString(3),
                             rs.getString(4));
+                    form.setFormularioId(rs.getString(1));
                 } else {
                     form = null;
                 }
@@ -99,10 +102,12 @@ public class DaoFormularioImpl implements DaoFormulario {
     public List<Formulario> leerFormularioPorCliente(Integer clienteId) {
         List<Formulario> formularios = new ArrayList<>();
 
-        try (Connection connection = conexionBaseDatos.connecta(); PreparedStatement statement = connection.prepareStatement("SELECT * FROM formularios WHERE cliente_id = ?"); ResultSet resultSet = statement.executeQuery()) {
-
-            statement.setInt(1, clienteId);
-
+         try (Connection connection = conexionBaseDatos.connecta();
+             ) {
+             PreparedStatement statement = connection.prepareStatement("SELECT * FROM formularios WHERE cliente_id = ?");
+             statement.setInt(1, clienteId);
+             ResultSet resultSet = statement.executeQuery();
+                       
             while (resultSet.next()) {
                 Formulario formulario = mapResultSetToFormulario(resultSet);
                 formularios.add(formulario);
@@ -113,13 +118,14 @@ public class DaoFormularioImpl implements DaoFormulario {
 
         return formularios;
     }
-
-    private Formulario mapResultSetToFormulario(ResultSet resultSet) throws SQLException {
+    
+        private Formulario mapResultSetToFormulario(ResultSet resultSet) throws SQLException {
         String formularioId = resultSet.getString("formulario_id");
         Integer clienteId = resultSet.getInt("cliente_id");
         String slug = resultSet.getString("slug");
-        String urlWeb = resultSet.getNString("url_web");
-
-        return new Formulario(formularioId, clienteId, slug, urlWeb);
-    }
-}
+        String urlWeb = resultSet.getString("url_web");
+        
+        Formulario form = new Formulario(clienteId, slug, urlWeb);
+        form.setFormularioId(formularioId);
+        return form;
+}}
