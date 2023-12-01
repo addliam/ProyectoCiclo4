@@ -223,9 +223,9 @@ public class ReporteErrores extends javax.swing.JFrame {
     private javax.swing.JLabel labelCategoriasAsignadas;
     private javax.swing.JLabel labelPanelFormulario;
     private javax.swing.JLabel labelRespuestas;
-    private javax.swing.JTable tablaContenidoCategoriaFecha;
-    private javax.swing.JTable tablaItemValor;
-    private javax.swing.JTable tablaNombre;
+    public javax.swing.JTable tablaContenidoCategoriaFecha;
+    public javax.swing.JTable tablaItemValor;
+    public javax.swing.JTable tablaNombre;
     private javax.swing.JLabel txtEncontraron4elementos;
     // End of variables declaration//GEN-END:variables
 }
