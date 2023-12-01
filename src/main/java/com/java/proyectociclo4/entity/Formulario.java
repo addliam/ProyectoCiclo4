@@ -1,5 +1,7 @@
 package com.java.proyectociclo4.entity;
 
+import java.util.UUID;
+
 /**
  *
  * @author Daygo
@@ -8,12 +10,12 @@ public class Formulario {
 
     private String formularioId;
     private Integer clienteId;
-    private String slug;
+    private String slug=this.generarUuid();
     private String urlWeb;
 
     @Override
     public String toString() {
-        return "Formulario : " + formularioId
+        return "FormularioID : " + formularioId
                 + "\nCliented : " + clienteId
                 + "\nSlug : " + slug
                 + "\nUrlWeb=" + urlWeb + '}';
@@ -32,6 +34,16 @@ public class Formulario {
         this.urlWeb = urlWeb;
     }
 
+    public Formulario(Integer clienteId, String urlWeb) {
+        this.clienteId = clienteId;
+        this.urlWeb = urlWeb;
+    }
+        
+    private String generarUuid(){
+        final String uuid = UUID.randomUUID().toString();
+        return uuid;
+        
+    }
     public String getFormularioId() {
         return formularioId;
     }
