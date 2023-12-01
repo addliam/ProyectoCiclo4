@@ -1,7 +1,6 @@
 package com.java.proyectociclo4.dao.impl;
 
 import com.java.proyectociclo4.dao.DaoFormulario;
-import com.java.proyectociclo4.entity.Categoria;
 import com.java.proyectociclo4.entity.Formulario;
 import com.java.proyectociclo4.util.ConexionBaseDatos;
 import java.util.List;

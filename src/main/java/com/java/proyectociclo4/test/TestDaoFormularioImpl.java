@@ -30,6 +30,8 @@ public class TestDaoFormularioImpl {
         List<Formulario> formularios = daoFormImpl.leerFormularioPorCliente(clienteId);
         for (Formulario formulario : formularios) {
             System.out.println(formulario);
+            
+            //.
         }
     }
     }
