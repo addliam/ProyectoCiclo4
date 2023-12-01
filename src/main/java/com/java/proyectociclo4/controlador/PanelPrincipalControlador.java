@@ -71,6 +71,7 @@ public class PanelPrincipalControlador implements ActionListener {
     public void rellenarTablaFormulario() {
         List<Formulario> formularios = this.modelo2.leerFormularioPorCliente(clienteId);
         for (Formulario formulario : formularios) {
+            System.out.println(formulario);
             Object[] fila = {formulario.getFormularioId(), formulario.getSlug(), formulario.getUrlWeb()};
             modeloTablaF.addRow(fila);
         }
