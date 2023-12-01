@@ -8,10 +8,14 @@ import com.java.proyectociclo4.dao.DaoRespuesta;
 import com.java.proyectociclo4.dao.impl.DaoCategoriaImpl;
 import com.java.proyectociclo4.dao.impl.DaoFormularioImpl;
 import com.java.proyectociclo4.dao.impl.DaoRespuestaImpl;
+import com.java.proyectociclo4.entity.Categoria;
+import com.java.proyectociclo4.entity.Formulario;
 import com.java.proyectociclo4.entity.Respuesta;
+import com.java.proyectociclo4.entity.RespuestaCategoria;
 import com.java.proyectociclo4.vista.ReporteErrores;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,9 +28,9 @@ public class ReporteErroresControlador implements ActionListener {
     private DaoCategoriaImpl daoCategoriaImpl;
     private DaoFormularioImpl daoFormularioImpl;
     private DaoRespuestaImpl daoRespuestaImpl;
-    private Integer clienteId = 1;
-    private DefaultTableModel modeloTablaValor;
-    private DefaultTableModel modeloTablaContenidoCategoriaFecha;
+    private Integer formularioId = 1;
+    private DefaultTableModel modeloTablaFormulario;
+    private DefaultTableModel modeloTablaRespuestas;
     private DefaultTableModel modeloTablaCategorias;
 
     public ReporteErroresControlador(DaoCategoriaImpl daoCategoriaImpl, DaoFormularioImpl daoFormularioImpl, DaoRespuestaImpl daoRespuestaImpl, ReporteErrores vista) {
@@ -36,17 +40,12 @@ public class ReporteErroresControlador implements ActionListener {
         this.vista = vista;
     }
 
-    public Integer getClienteId() {
-        return clienteId;
-    }
-
-    public void setClienteId(Integer clienteId) {
-        this.clienteId = clienteId;
-    }
-
     public void start() {
         this.iniciarTabla();
-        this.rellenarTabla();
+        this.rellenarTablaCategoria();
+        this.rellenarTablaInformacionFormulario();
+        this.rellenarTablaRespuestas();
+        //mostrarvista
         this.vista.setLocationRelativeTo(null);
         this.vista.setVisible(true);
     }
@@ -57,26 +56,59 @@ public class ReporteErroresControlador implements ActionListener {
 
         Object[] cols = {"Item", "Valor"};
         //direccion significa slug
-        modeloTablaValor = new DefaultTableModel(data, cols);
-        this.vista.tablaItemValor.setModel(modeloTablaValor);
+        modeloTablaFormulario = new DefaultTableModel(data, cols);
+        this.vista.tablaFormulario.setModel(modeloTablaFormulario);
         //iniciando tabla respuestas
-        Object[] cols2 = {"Contenido", "Categoria", "Fecha"};
-        modeloTablaContenidoCategoriaFecha = new DefaultTableModel(data, cols);
-        this.vista.tablaContenidoCategoriaFecha.setModel(modeloTablaContenidoCategoriaFecha);
+        Object[] cols2 = {"Id", "Contenido", "Categoria", "Email"};
+        modeloTablaRespuestas = new DefaultTableModel(data, cols2);
+        this.vista.tablaRespuestas.setModel(modeloTablaRespuestas);
         //iniciando tabla categoria
         Object[] cols3 = {"Id", "Nombre"};
-        modeloTablaCategorias = new DefaultTableModel(data, cols);
+        modeloTablaCategorias = new DefaultTableModel(data, cols3);
         this.vista.tablaCategorias.setModel(modeloTablaCategorias);
     }
-//conf
 
-    private void rellenarTabla() {
+    private void rellenarTablaCategoria() {
+        List<Categoria> categorias = daoCategoriaImpl.categoriaSelecPorFormulario(formularioId);
+        for (Categoria categoria : categorias) {
+            Object[] fila = {categoria.getCategoriaId(), categoria.getNombre()};
+            modeloTablaCategorias.addRow(fila);
+        }
+    }
+
+    public void rellenarTablaInformacionFormulario() {
+        Formulario formulario = daoFormularioImpl.leerFormulario(formularioId);
+        Object[] fila = {"Id", formulario.getFormularioId()};
+        Object[] fila2 = {"Slug", formulario.getSlug()};
+        Object[] fila3 = {"URL Web", formulario.getUrlWeb()};
+        modeloTablaFormulario.addRow(fila);
+        modeloTablaFormulario.addRow(fila2);
+        modeloTablaFormulario.addRow(fila3);
+
+    }
+
+    public void rellenarTablaRespuestas() {
+        List<RespuestaCategoria> respuestas = daoRespuestaImpl.respuestaCategoriaSelecPorFormulario(formularioId);
+        for (RespuestaCategoria respuesta : respuestas) {
+            Object[] fila = {respuesta.getRespuestaId(), respuesta.getContenido(), respuesta.getNombre(), respuesta.getUsuarioEmail()};
+            modeloTablaRespuestas.addRow(fila);
+            System.out.println(fila);
+
+        }
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public Integer getFormularioId() {
+        return formularioId;
+    }
+
+    public void setFormularioId(Integer formularioId) {
+        this.formularioId = formularioId;
     }
 
 }

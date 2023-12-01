@@ -28,7 +28,7 @@ public class ReporteErrores extends javax.swing.JFrame {
 
         labelCategoriasAsignadas = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tablaContenidoCategoriaFecha = new javax.swing.JTable();
+        tablaRespuestas = new javax.swing.JTable();
         txtEncontraron4elementos = new javax.swing.JLabel();
         cbCategoria = new javax.swing.JComboBox<>();
         labelPanelFormulario = new javax.swing.JLabel();
@@ -37,14 +37,14 @@ public class ReporteErrores extends javax.swing.JFrame {
         tablaCategorias = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        tablaItemValor = new javax.swing.JTable();
+        tablaFormulario = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         labelCategoriasAsignadas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labelCategoriasAsignadas.setText("CATEGORIAS ASIGNADAS");
 
-        tablaContenidoCategoriaFecha.setModel(new javax.swing.table.DefaultTableModel(
+        tablaRespuestas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null}
             },
@@ -52,7 +52,7 @@ public class ReporteErrores extends javax.swing.JFrame {
                 "Contenido", "Categoria", "Fecha"
             }
         ));
-        jScrollPane2.setViewportView(tablaContenidoCategoriaFecha);
+        jScrollPane2.setViewportView(tablaRespuestas);
 
         txtEncontraron4elementos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtEncontraron4elementos.setText("Se encontraron 4 elementos");
@@ -88,7 +88,7 @@ public class ReporteErrores extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setText("REPORTE ERRORES");
 
-        tablaItemValor.setModel(new javax.swing.table.DefaultTableModel(
+        tablaFormulario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -100,7 +100,7 @@ public class ReporteErrores extends javax.swing.JFrame {
                 "Item", "Valor"
             }
         ));
-        jScrollPane4.setViewportView(tablaItemValor);
+        jScrollPane4.setViewportView(tablaFormulario);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,14 +125,13 @@ public class ReporteErrores extends javax.swing.JFrame {
                                 .addGap(174, 174, 174)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelCategoriasAsignadas, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(167, 167, 167))
+                                    .addComponent(labelCategoriasAsignadas, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(110, 110, 110)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,9 +147,7 @@ public class ReporteErrores extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -216,8 +213,8 @@ public class ReporteErrores extends javax.swing.JFrame {
     private javax.swing.JLabel labelPanelFormulario;
     private javax.swing.JLabel labelRespuestas;
     public javax.swing.JTable tablaCategorias;
-    public javax.swing.JTable tablaContenidoCategoriaFecha;
-    public javax.swing.JTable tablaItemValor;
+    public javax.swing.JTable tablaFormulario;
+    public javax.swing.JTable tablaRespuestas;
     private javax.swing.JLabel txtEncontraron4elementos;
     // End of variables declaration//GEN-END:variables
 }
