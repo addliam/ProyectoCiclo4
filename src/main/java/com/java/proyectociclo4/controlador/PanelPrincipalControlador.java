@@ -74,7 +74,6 @@ public class PanelPrincipalControlador implements ActionListener {
             Object[] fila = {formulario.getFormularioId(), formulario.getSlug(), formulario.getUrlWeb()};
             modeloTablaF.addRow(fila);
         }
-
     }
 
     public void rellenarTablaCategoria() {
