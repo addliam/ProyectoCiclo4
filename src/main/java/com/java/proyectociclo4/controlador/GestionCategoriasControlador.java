@@ -4,8 +4,10 @@ package com.java.proyectociclo4.controlador;
  * @author Gherika
  */
 import com.java.proyectociclo4.dao.impl.DaoCategoriaImpl;
+import com.java.proyectociclo4.dao.impl.DaoFormularioImpl;
 import com.java.proyectociclo4.entity.Categoria;
 import com.java.proyectociclo4.vista.GestionCategoria;
+import com.java.proyectociclo4.vista.PanelPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -79,6 +81,19 @@ public class GestionCategoriasControlador implements ActionListener {
             clickBtnCrearNuevaCategoria();
             // Lógica para el botón de crear nueva categoría
         }
+        if (btn == this.vista.btnAtras) {
+            PanelPrincipal vista1 = new PanelPrincipal();
+            DaoCategoriaImpl modelo1 = new DaoCategoriaImpl();
+            DaoFormularioImpl modelo2 = new DaoFormularioImpl();
+            PanelPrincipalControlador controlador = new PanelPrincipalControlador(modelo1, modelo2, vista1);
+            // Establecer variable requerida (clienteId)
+            controlador.setClienteId(this.usuarioId);
+            // iniciar y mostrar nuevo frame
+            controlador.start();
+            // ocultar frame actual
+            this.vista.dispose();
+        }
+
     }
 
     public Integer getUsuarioId() {
