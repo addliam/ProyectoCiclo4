@@ -33,8 +33,9 @@ public class Formulario {
     }
 
     public String getFormularioId() {
-        return  null;
+        return formularioId;
     }
+ 
 
     public void setFormularioId(String formularioId) {
         this.formularioId = formularioId;
