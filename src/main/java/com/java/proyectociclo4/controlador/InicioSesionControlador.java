@@ -4,12 +4,16 @@
  */
 package com.java.proyectociclo4.controlador;
 
+import com.java.proyectociclo4.dao.impl.DaoCategoriaImpl;
 import com.java.proyectociclo4.dao.impl.DaoClienteImpl;
+import com.java.proyectociclo4.dao.impl.DaoFormularioImpl;
 import com.java.proyectociclo4.entity.Cliente;
 import com.java.proyectociclo4.vista.InicioSesion;
+import com.java.proyectociclo4.vista.PanelPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -42,9 +46,19 @@ public class InicioSesionControlador implements ActionListener {
                     this.vista.txtUsuario.getText(),
                     this.vista.txtContrasena.getText());
             if (cl == null) {
-                System.out.println("[-] Fallo autenticacion");
+                JOptionPane.showMessageDialog(null, "Fallo la autenticacion. Email o password incorrectos.", "Error autenticacion", JOptionPane.ERROR_MESSAGE);
             } else {
-                System.out.println(cl);
+                // Cambiar de frame
+                PanelPrincipal vista1 = new PanelPrincipal();
+                DaoCategoriaImpl modelo1 = new DaoCategoriaImpl();
+                DaoFormularioImpl modelo2 = new DaoFormularioImpl();
+                PanelPrincipalControlador controlador = new PanelPrincipalControlador(modelo1, modelo2, vista1);
+                // Establecer variable requerida (clienteId)
+                controlador.setClienteId(cl.getClienteId());
+                // iniciar y mostrar nuevo frame
+                controlador.start();
+                // ocultar frame actual
+                this.vista.dispose();
             }
         }
     }

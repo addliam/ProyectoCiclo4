@@ -12,7 +12,7 @@ import com.java.proyectociclo4.vista.InicioSesion;
  *
  * @author liamy
  */
-public class TestControlador {
+public class TestInicioSesionControlador {
 
     public static void main(String[] args) {
         InicioSesion vista = new InicioSesion();
