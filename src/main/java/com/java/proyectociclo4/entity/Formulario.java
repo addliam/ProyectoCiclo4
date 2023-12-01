@@ -25,6 +25,12 @@ public class Formulario {
         this.slug = slug;
         this.urlWeb = urlWeb;
     }
+    
+    public Formulario(Integer cliented, String slug, String urlWeb) {
+        this.clienteId = cliented;
+        this.slug = slug;
+        this.urlWeb = urlWeb;
+    }
 
     public String getFormularioId() {
         return  null;

@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -36,7 +37,7 @@ public class DaoFormularioImpl implements DaoFormulario {
                 .append(") VALUES (?,?,?)");
 
         try (Connection con = conexionBaseDatos.connecta()) {
-            PreparedStatement ps = con.prepareCall(sql.toString());                        
+            PreparedStatement ps = con.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
             ps.setInt   (1, formulario.getClienteId());
             ps.setString(2, formulario.getSlug());
             ps.setString(3, formulario.getUrlWeb());
