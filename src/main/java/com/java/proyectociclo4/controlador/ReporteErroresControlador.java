@@ -5,6 +5,9 @@
 package com.java.proyectociclo4.controlador;
 
 import com.java.proyectociclo4.dao.DaoRespuesta;
+import com.java.proyectociclo4.dao.impl.DaoCategoriaImpl;
+import com.java.proyectociclo4.dao.impl.DaoFormularioImpl;
+import com.java.proyectociclo4.dao.impl.DaoRespuestaImpl;
 import com.java.proyectociclo4.entity.Respuesta;
 import com.java.proyectociclo4.vista.ReporteErrores;
 import java.awt.event.ActionEvent;
@@ -18,11 +21,20 @@ import javax.swing.table.DefaultTableModel;
 public class ReporteErroresControlador implements ActionListener {
 
     private ReporteErrores vista;
-    private DaoRespuesta modelo;
+    private DaoCategoriaImpl daoCategoriaImpl;
+    private DaoFormularioImpl daoFormularioImpl;
+    private DaoRespuestaImpl daoRespuestaImpl;
     private Integer clienteId = 1;
     private DefaultTableModel modeloTablaValor;
     private DefaultTableModel modeloTablaContenidoCategoriaFecha;
-    private DefaultTableModel modelotablaNombre;
+    private DefaultTableModel modeloTablaCategorias;
+
+    public ReporteErroresControlador(DaoCategoriaImpl daoCategoriaImpl, DaoFormularioImpl daoFormularioImpl, DaoRespuestaImpl daoRespuestaImpl, ReporteErrores vista) {
+        this.daoCategoriaImpl = daoCategoriaImpl;
+        this.daoFormularioImpl = daoFormularioImpl;
+        this.daoRespuestaImpl = daoRespuestaImpl;
+        this.vista = vista;
+    }
 
     public Integer getClienteId() {
         return clienteId;
@@ -32,9 +44,11 @@ public class ReporteErroresControlador implements ActionListener {
         this.clienteId = clienteId;
     }
 
-    public void star() {
+    public void start() {
         this.iniciarTabla();
         this.rellenarTabla();
+        this.vista.setLocationRelativeTo(null);
+        this.vista.setVisible(true);
     }
 
     public void iniciarTabla() {
@@ -50,9 +64,9 @@ public class ReporteErroresControlador implements ActionListener {
         modeloTablaContenidoCategoriaFecha = new DefaultTableModel(data, cols);
         this.vista.tablaContenidoCategoriaFecha.setModel(modeloTablaContenidoCategoriaFecha);
         //iniciando tabla categoria
-        Object[] cols3 = {"Nombre"};
-        modelotablaNombre = new DefaultTableModel(data, cols);
-        this.vista.tablaNombre.setModel(modelotablaNombre);
+        Object[] cols3 = {"Id", "Nombre"};
+        modeloTablaCategorias = new DefaultTableModel(data, cols);
+        this.vista.tablaCategorias.setModel(modeloTablaCategorias);
     }
 //conf
 

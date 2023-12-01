@@ -26,7 +26,6 @@ public class ReporteErrores extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jToolBar1 = new javax.swing.JToolBar();
         labelCategoriasAsignadas = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaContenidoCategoriaFecha = new javax.swing.JTable();
@@ -35,14 +34,12 @@ public class ReporteErrores extends javax.swing.JFrame {
         labelPanelFormulario = new javax.swing.JLabel();
         labelRespuestas = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tablaNombre = new javax.swing.JTable();
+        tablaCategorias = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaItemValor = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jToolBar1.setRollover(true);
 
         labelCategoriasAsignadas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labelCategoriasAsignadas.setText("CATEGORIAS ASIGNADAS");
@@ -74,7 +71,7 @@ public class ReporteErrores extends javax.swing.JFrame {
         labelRespuestas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labelRespuestas.setText("Respuestas");
 
-        tablaNombre.setModel(new javax.swing.table.DefaultTableModel(
+        tablaCategorias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -86,7 +83,7 @@ public class ReporteErrores extends javax.swing.JFrame {
                 "Nombre"
             }
         ));
-        jScrollPane3.setViewportView(tablaNombre);
+        jScrollPane3.setViewportView(tablaCategorias);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setText("REPORTE ERRORES");
@@ -128,10 +125,8 @@ public class ReporteErrores extends javax.swing.JFrame {
                                 .addGap(174, 174, 174)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(labelCategoriasAsignadas, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(67, 67, 67)
-                                        .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(labelCategoriasAsignadas, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(167, 167, 167))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(110, 110, 110)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -147,10 +142,8 @@ public class ReporteErrores extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelPanelFormulario)
-                    .addComponent(labelCategoriasAsignadas)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(labelCategoriasAsignadas))
+                .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
@@ -219,13 +212,12 @@ public class ReporteErrores extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel labelCategoriasAsignadas;
     private javax.swing.JLabel labelPanelFormulario;
     private javax.swing.JLabel labelRespuestas;
+    public javax.swing.JTable tablaCategorias;
     public javax.swing.JTable tablaContenidoCategoriaFecha;
     public javax.swing.JTable tablaItemValor;
-    public javax.swing.JTable tablaNombre;
     private javax.swing.JLabel txtEncontraron4elementos;
     // End of variables declaration//GEN-END:variables
 }
