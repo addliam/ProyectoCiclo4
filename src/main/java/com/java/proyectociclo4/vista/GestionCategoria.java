@@ -174,7 +174,7 @@ public class GestionCategoria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAtras;
+    public javax.swing.JButton btnAtras;
     public javax.swing.JButton btnCrearNuevaCategoria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
