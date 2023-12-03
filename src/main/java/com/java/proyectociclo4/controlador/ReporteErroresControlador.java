@@ -86,13 +86,13 @@ public class ReporteErroresControlador implements ActionListener {
         this.vista.tablaRespuestas.getColumnModel().getColumn(0).setMaxWidth(10);
         this.vista.tablaRespuestas.getColumnModel().getColumn(0).setPreferredWidth(100);
         this.vista.tablaRespuestas.getColumnModel().getColumn(1).setMinWidth(100);
-        this.vista.tablaRespuestas.getColumnModel().getColumn(1).setMaxWidth(215);
+        this.vista.tablaRespuestas.getColumnModel().getColumn(1).setMaxWidth(300);
         this.vista.tablaRespuestas.getColumnModel().getColumn(1).setPreferredWidth(200);
         this.vista.tablaRespuestas.getColumnModel().getColumn(2).setMinWidth(50);
         this.vista.tablaRespuestas.getColumnModel().getColumn(2).setMaxWidth(100);
         this.vista.tablaRespuestas.getColumnModel().getColumn(2).setPreferredWidth(50);
         this.vista.tablaRespuestas.getColumnModel().getColumn(3).setMinWidth(100);
-        this.vista.tablaRespuestas.getColumnModel().getColumn(3).setMaxWidth(100);
+        this.vista.tablaRespuestas.getColumnModel().getColumn(3).setMaxWidth(600);
         this.vista.tablaRespuestas.getColumnModel().getColumn(3).setPreferredWidth(200);
         //iniciando tabla categoria
         Object[] cols3 = {"Id", "Nombre"};
