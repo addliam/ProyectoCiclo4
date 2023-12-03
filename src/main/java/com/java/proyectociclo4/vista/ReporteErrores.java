@@ -30,18 +30,18 @@ public class ReporteErrores extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaRespuestas = new javax.swing.JTable();
         txtEncontraron4elementos = new javax.swing.JLabel();
-        cbCategoria = new javax.swing.JComboBox<>();
         labelPanelFormulario = new javax.swing.JLabel();
         labelRespuestas = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaCategorias = new javax.swing.JTable();
-        jLabel6 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaFormulario = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        labelCategoriasAsignadas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        labelCategoriasAsignadas.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
         labelCategoriasAsignadas.setText("CATEGORIAS ASIGNADAS");
 
         tablaRespuestas.setModel(new javax.swing.table.DefaultTableModel(
@@ -54,22 +54,14 @@ public class ReporteErrores extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tablaRespuestas);
 
-        txtEncontraron4elementos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEncontraron4elementos.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         txtEncontraron4elementos.setText("Se encontraron 4 elementos");
 
-        cbCategoria.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CATEGORIA", "Web", "Sugerencia", "Latencia", "Funcionalidad" }));
-        cbCategoria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbCategoriaActionPerformed(evt);
-            }
-        });
-
-        labelPanelFormulario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        labelPanelFormulario.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
         labelPanelFormulario.setText("PANEL FORMULARIO");
 
-        labelRespuestas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelRespuestas.setText("Respuestas");
+        labelRespuestas.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
+        labelRespuestas.setText("RESPUESTAS");
 
         tablaCategorias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -85,9 +77,6 @@ public class ReporteErrores extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tablaCategorias);
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setText("REPORTE ERRORES");
-
         tablaFormulario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -102,71 +91,59 @@ public class ReporteErrores extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(tablaFormulario);
 
+        jButton1.setText("jButton1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
+                        .addGap(96, 96, 96)
                         .addComponent(txtEncontraron4elementos, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
+                        .addGap(96, 96, 96)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelRespuestas, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelRespuestas, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(194, 194, 194)
-                                .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelPanelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(174, 174, 174)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelPanelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton1))
+                                .addGap(147, 147, 147)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(labelCategoriasAsignadas, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(201, Short.MAX_VALUE))
+                        .addGap(29, 29, 29)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 966, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(21, 21, 21)
+                .addComponent(jButton1)
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelPanelFormulario)
                     .addComponent(labelCategoriasAsignadas))
-                .addGap(3, 3, 3)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(labelRespuestas))
-                    .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addComponent(labelRespuestas)
                 .addGap(8, 8, 8)
                 .addComponent(txtEncontraron4elementos)
-                .addGap(20, 20, 20)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cbCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCategoriaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbCategoriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,8 +181,7 @@ public class ReporteErrores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cbCategoria;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;

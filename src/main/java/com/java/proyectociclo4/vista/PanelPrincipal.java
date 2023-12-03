@@ -42,19 +42,14 @@ public class PanelPrincipal extends javax.swing.JFrame {
         btnModificarCategorias.setText("Modificar categorias");
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Mis formularios");
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 20)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Mis categorias");
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Reporte errores");
 
-        tableCategoria.setBackground(new java.awt.Color(255, 255, 255));
-        tableCategoria.setForeground(new java.awt.Color(0, 0, 0));
         tableCategoria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -68,8 +63,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(tableCategoria);
 
-        tableFormulario.setBackground(new java.awt.Color(255, 255, 255));
-        tableFormulario.setForeground(new java.awt.Color(0, 0, 0));
         tableFormulario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
