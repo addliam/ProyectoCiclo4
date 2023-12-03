@@ -8,6 +8,7 @@ import com.java.proyectociclo4.dao.impl.DaoCategoriaImpl;
 import com.java.proyectociclo4.dao.impl.DaoFormularioImpl;
 import com.java.proyectociclo4.entity.Categoria;
 import com.java.proyectociclo4.entity.Formulario;
+import com.java.proyectociclo4.vista.GestionCategoria;
 import com.java.proyectociclo4.vista.PanelPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -56,16 +57,28 @@ public class PanelPrincipalControlador implements ActionListener {
     private void iniciarTablas() {
         //iniciando tabla formularios
         Object[][] data = null;
+        Object[][] data2 = null;
 
         Object[] cols = {"Id", "Direccion", "Url web"};
         //direccion significa slug
         modeloTablaF = new DefaultTableModel(data, cols);
         this.vista.tableFormulario.setModel(modeloTablaF);
+        //dimensiones
+        this.vista.tableFormulario.getColumnModel().getColumn(0).setPreferredWidth(50);
+        this.vista.tableFormulario.getColumnModel().getColumn(1).setPreferredWidth(150);
+        this.vista.tableFormulario.getColumnModel().getColumn(2).setPreferredWidth(250);
         //iniciando tabla categoria
         Object[] cols2 = {"Id", "Nombre"};
         //direccion significa slug
-        modeloTablaC = new DefaultTableModel(data, cols2);
+        modeloTablaC = new DefaultTableModel(data2, cols2);
         this.vista.tableCategoria.setModel(modeloTablaC);
+        this.vista.tableCategoria.getColumnModel().getColumn(0).setMinWidth(30);
+        this.vista.tableCategoria.getColumnModel().getColumn(0).setMaxWidth(45);
+        this.vista.tableCategoria.getColumnModel().getColumn(0).setPreferredWidth(60);
+        this.vista.tableCategoria.getColumnModel().getColumn(1).setMinWidth(100);
+        this.vista.tableCategoria.getColumnModel().getColumn(1).setMaxWidth(150);
+        this.vista.tableCategoria.getColumnModel().getColumn(1).setPreferredWidth(180);
+
     }
 
     public void rellenarTablaFormulario() {
@@ -95,8 +108,15 @@ public class PanelPrincipalControlador implements ActionListener {
         JButton btn = (JButton) e.getSource();
         if (btn == this.vista.btnCrearNuevoFormulario) {
             System.out.println("btnCrearNuevoFormulario");
+            //crearformularioControlador
         } else if (btn == this.vista.btnModificarCategorias) {
             System.out.println("btnModificarCategorias");
+            DaoCategoriaImpl daoCategoriaImpl = new DaoCategoriaImpl();
+            GestionCategoria gestionCategoria = new GestionCategoria();
+            GestionCategoriasControlador controlador = new GestionCategoriasControlador(daoCategoriaImpl, gestionCategoria);
+            controlador.setUsuarioId(this.clienteId);
+            controlador.start();
+            this.vista.dispose();
         }
     }
 }

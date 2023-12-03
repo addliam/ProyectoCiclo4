@@ -48,15 +48,17 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnModificarCategorias" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
                               <Component id="btnCrearNuevoFormulario" alignment="0" min="-2" pref="215" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane4" min="-2" pref="445" max="-2" attributes="0"/>
                                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jScrollPane2" alignment="0" min="-2" pref="379" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="jScrollPane4" alignment="0" pref="0" max="32767" attributes="0"/>
+                                          <Component id="btnModificarCategorias" alignment="0" pref="196" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
@@ -66,7 +68,7 @@
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="449" max="32767" attributes="0"/>
+                  <EmptySpace pref="515" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
