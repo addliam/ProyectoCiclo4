@@ -13,6 +13,7 @@ public class Formulario {
     private String slug=this.generarUuid();
     private String urlWeb;
 
+
     @Override
     public String toString() {
         return "FormularioID : " + formularioId
