@@ -5,9 +5,11 @@
 package com.java.proyectociclo4.controlador;
 
 import com.java.proyectociclo4.dao.impl.DaoCategoriaImpl;
+import com.java.proyectociclo4.dao.impl.DaoFormularioCategoriaImpl;
 import com.java.proyectociclo4.dao.impl.DaoFormularioImpl;
 import com.java.proyectociclo4.entity.Categoria;
 import com.java.proyectociclo4.entity.Formulario;
+import com.java.proyectociclo4.vista.CrearFormulario;
 import com.java.proyectociclo4.vista.GestionCategoria;
 import com.java.proyectociclo4.vista.PanelPrincipal;
 import java.awt.event.ActionEvent;
@@ -109,6 +111,14 @@ public class PanelPrincipalControlador implements ActionListener {
         if (btn == this.vista.btnCrearNuevoFormulario) {
             System.out.println("btnCrearNuevoFormulario");
             //crearformularioControlador
+            DaoFormularioImpl daoFormularioImpl = new DaoFormularioImpl();
+            DaoFormularioCategoriaImpl daoFormularioCategoriaImpl = new DaoFormularioCategoriaImpl();
+            DaoCategoriaImpl daoCategoriaImpl = new DaoCategoriaImpl();
+            CrearFormulario crearFormulario = new CrearFormulario();
+            CrearFormularioControlador controlador = new CrearFormularioControlador(modelo2, daoFormularioCategoriaImpl, modelo, crearFormulario);
+            controlador.setClienteId(this.clienteId);
+            controlador.start();
+            this.vista.dispose();
         } else if (btn == this.vista.btnModificarCategorias) {
             System.out.println("btnModificarCategorias");
             DaoCategoriaImpl daoCategoriaImpl = new DaoCategoriaImpl();
