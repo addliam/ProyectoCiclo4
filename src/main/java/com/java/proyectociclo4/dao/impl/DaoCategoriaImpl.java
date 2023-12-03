@@ -26,7 +26,7 @@ public class DaoCategoriaImpl implements DaoCategoria {
     public List<Categoria> categoriaSelecPorCliente(Integer clienteId) {
         List<Categoria> categorias = new ArrayList<>();
         StringBuilder sql = new StringBuilder();
-        sql.append("SELECT * FROM categorias WHERE cliente_id = ?");
+        sql.append("SELECT * FROM categorias WHERE cliente_id  = ? AND activo = true");
         try (Connection con = conexionBaseDatos.connecta()) {
             PreparedStatement ps = con.prepareCall(sql.toString());
             ps.setInt(1, clienteId);
@@ -84,20 +84,52 @@ public class DaoCategoriaImpl implements DaoCategoria {
     @Override
     public Categoria categoriaLeer(String id) {
         Categoria categoria = null;
-        //pendiente
+        StringBuilder sql = new StringBuilder();
+        sql.append("SELECT * FROM categorias WHERE categoria_id =?");
+        try (Connection con = conexionBaseDatos.connecta()) {
+            PreparedStatement ps = con.prepareCall(sql.toString());
+            ps.setInt(1, Integer.valueOf(id));
+            try (ResultSet resultSet = ps.executeQuery()) {
+                while (resultSet.next()) {
+                    categoria = mapResultSetToCategoria(resultSet);
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         return categoria;
     }
 
     @Override
     public String categoriaUpdate(Categoria categoria) {
-        //pendiente
-        return "Categoría actualizada exitosamente";
+        StringBuilder sql = new StringBuilder();
+        sql.append("UPDATE categorias SET nombre=? WHERE categoria_id=?");
+        try (Connection con = conexionBaseDatos.connecta()) {
+            PreparedStatement ps = con.prepareCall(sql.toString());
+            ps.setString(1, categoria.getNombre());
+            ps.setInt(2, Integer.valueOf(categoria.getCategoriaId()));
+            int columnas = ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return "";
     }
 
+    //Faltan gestionar permisos
     @Override
     public String categoriaEliminar(Categoria categoria) {
-        //pendiente
-        return "Categoría eliminada exitosamente";
+        StringBuilder sql = new StringBuilder();
+        sql.append("UPDATE categorias SET activo=false WHERE categoria_id=?");
+        try (Connection con = conexionBaseDatos.connecta()) {
+            PreparedStatement ps = con.prepareCall(sql.toString());
+            ps.setInt(1, Integer.valueOf(categoria.getCategoriaId()));
+            int columnas = ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return "";
     }
 
     private Categoria mapResultSetToCategoria(ResultSet resultSet) throws SQLException {

@@ -21,9 +21,20 @@ public class TestCategoriaImpl {
             System.out.println(categoria);
         }*/
 
-        Categoria c1 = new Categoria();
+ /*Categoria c1 = new Categoria();
         c1.setNombre("test714");
         c1.setClienteId(1);
         dao.categoriaCrear(c1);
+         */
+ /*
+         */
+ /*
+        Categoria c1 = new Categoria();
+        c1.setNombre("Nombre actualizado");
+        c1.setCategoriaId("9");
+        dao.categoriaUpdate(c1);
+         */
+        Categoria c = dao.categoriaLeer("5");
+        System.out.println(c);
     }
 }
