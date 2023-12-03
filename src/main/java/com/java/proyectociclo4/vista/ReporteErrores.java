@@ -36,7 +36,7 @@ public class ReporteErrores extends javax.swing.JFrame {
         tablaCategorias = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaFormulario = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnAtrasReporteErrores = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -91,7 +91,15 @@ public class ReporteErrores extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(tablaFormulario);
 
-        jButton1.setText("jButton1");
+        btnAtrasReporteErrores.setBackground(new java.awt.Color(102, 51, 255));
+        btnAtrasReporteErrores.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
+        btnAtrasReporteErrores.setForeground(new java.awt.Color(255, 255, 255));
+        btnAtrasReporteErrores.setText("ATRAS");
+        btnAtrasReporteErrores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtrasReporteErroresActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,23 +117,24 @@ public class ReporteErrores extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(labelPanelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton1))
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(147, 147, 147)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(labelCategoriasAsignadas, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 966, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAtrasReporteErrores, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 966, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jButton1)
-                .addGap(41, 41, 41)
+                .addGap(23, 23, 23)
+                .addComponent(btnAtrasReporteErrores, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelPanelFormulario)
                     .addComponent(labelCategoriasAsignadas))
@@ -144,6 +153,10 @@ public class ReporteErrores extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAtrasReporteErroresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasReporteErroresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAtrasReporteErroresActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,7 +194,7 @@ public class ReporteErrores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton btnAtrasReporteErrores;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;

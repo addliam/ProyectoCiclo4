@@ -12,10 +12,12 @@ import com.java.proyectociclo4.entity.Categoria;
 import com.java.proyectociclo4.entity.Formulario;
 import com.java.proyectociclo4.entity.Respuesta;
 import com.java.proyectociclo4.entity.RespuestaCategoria;
+import com.java.proyectociclo4.vista.PanelPrincipal;
 import com.java.proyectociclo4.vista.ReporteErrores;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -32,6 +34,15 @@ public class ReporteErroresControlador implements ActionListener {
     private DefaultTableModel modeloTablaFormulario;
     private DefaultTableModel modeloTablaRespuestas;
     private DefaultTableModel modeloTablaCategorias;
+    private Integer clienteId = 1;
+
+    public Integer getClienteId() {
+        return clienteId;
+    }
+
+    public void setClienteId(Integer clienteId) {
+        this.clienteId = clienteId;
+    }
 
     public ReporteErroresControlador(DaoCategoriaImpl daoCategoriaImpl, DaoFormularioImpl daoFormularioImpl, DaoRespuestaImpl daoRespuestaImpl, ReporteErrores vista) {
         this.daoCategoriaImpl = daoCategoriaImpl;
@@ -100,7 +111,22 @@ public class ReporteErroresControlador implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        JButton btn = (JButton) e.getSource();
+        System.out.println("boton atras");
+        if (btn == this.vista.btnAtrasReporteErrores) {
+
+            PanelPrincipal vista1 = new PanelPrincipal();
+            DaoCategoriaImpl modelo1 = new DaoCategoriaImpl();
+            DaoFormularioImpl modelo2 = new DaoFormularioImpl();
+            PanelPrincipalControlador controlador = new PanelPrincipalControlador(modelo1, modelo2, vista1);
+            // Establecer variable requerida (clienteId)
+            controlador.setClienteId(this.clienteId);
+            // iniciar y mostrar nuevo frame
+            controlador.start();
+            // ocultar frame actual
+            this.vista.dispose();
+
+        }
     }
 
     public Integer getFormularioId() {
