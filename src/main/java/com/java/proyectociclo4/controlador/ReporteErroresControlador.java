@@ -56,6 +56,8 @@ public class ReporteErroresControlador implements ActionListener {
         this.rellenarTablaCategoria();
         this.rellenarTablaInformacionFormulario();
         this.rellenarTablaRespuestas();
+        // mapear boton
+        this.vista.btnAtrasReporteErrores.addActionListener(this);
         //mostrarvista
         this.vista.setLocationRelativeTo(null);
         this.vista.setVisible(true);
@@ -103,7 +105,6 @@ public class ReporteErroresControlador implements ActionListener {
         for (RespuestaCategoria respuesta : respuestas) {
             Object[] fila = {respuesta.getRespuestaId(), respuesta.getContenido(), respuesta.getNombre(), respuesta.getUsuarioEmail()};
             modeloTablaRespuestas.addRow(fila);
-            System.out.println(fila);
 
         }
 
