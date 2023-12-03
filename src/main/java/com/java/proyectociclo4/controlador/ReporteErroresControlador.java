@@ -71,14 +71,39 @@ public class ReporteErroresControlador implements ActionListener {
         //direccion significa slug
         modeloTablaFormulario = new DefaultTableModel(data, cols);
         this.vista.tablaFormulario.setModel(modeloTablaFormulario);
+        this.vista.tablaFormulario.getColumnModel().getColumn(0).setMinWidth(30);
+        this.vista.tablaFormulario.getColumnModel().getColumn(0).setMaxWidth(60);
+        this.vista.tablaFormulario.getColumnModel().getColumn(0).setPreferredWidth(100);
+        this.vista.tablaFormulario.getColumnModel().getColumn(1).setMinWidth(100);
+        this.vista.tablaFormulario.getColumnModel().getColumn(1).setMaxWidth(215);
+        this.vista.tablaFormulario.getColumnModel().getColumn(1).setPreferredWidth(200);
+
         //iniciando tabla respuestas
         Object[] cols2 = {"Id", "Contenido", "Categoria", "Email"};
         modeloTablaRespuestas = new DefaultTableModel(data, cols2);
         this.vista.tablaRespuestas.setModel(modeloTablaRespuestas);
+        this.vista.tablaRespuestas.getColumnModel().getColumn(0).setMinWidth(30);
+        this.vista.tablaRespuestas.getColumnModel().getColumn(0).setMaxWidth(10);
+        this.vista.tablaRespuestas.getColumnModel().getColumn(0).setPreferredWidth(100);
+        this.vista.tablaRespuestas.getColumnModel().getColumn(1).setMinWidth(100);
+        this.vista.tablaRespuestas.getColumnModel().getColumn(1).setMaxWidth(215);
+        this.vista.tablaRespuestas.getColumnModel().getColumn(1).setPreferredWidth(200);
+        this.vista.tablaRespuestas.getColumnModel().getColumn(2).setMinWidth(50);
+        this.vista.tablaRespuestas.getColumnModel().getColumn(2).setMaxWidth(100);
+        this.vista.tablaRespuestas.getColumnModel().getColumn(2).setPreferredWidth(50);
+        this.vista.tablaRespuestas.getColumnModel().getColumn(3).setMinWidth(100);
+        this.vista.tablaRespuestas.getColumnModel().getColumn(3).setMaxWidth(100);
+        this.vista.tablaRespuestas.getColumnModel().getColumn(3).setPreferredWidth(200);
         //iniciando tabla categoria
         Object[] cols3 = {"Id", "Nombre"};
         modeloTablaCategorias = new DefaultTableModel(data, cols3);
         this.vista.tablaCategorias.setModel(modeloTablaCategorias);
+        this.vista.tablaCategorias.getColumnModel().getColumn(0).setMinWidth(30);
+        this.vista.tablaCategorias.getColumnModel().getColumn(0).setMaxWidth(5);
+        this.vista.tablaCategorias.getColumnModel().getColumn(0).setPreferredWidth(100);
+        this.vista.tablaCategorias.getColumnModel().getColumn(1).setMinWidth(100);
+        this.vista.tablaCategorias.getColumnModel().getColumn(1).setMaxWidth(100);
+        this.vista.tablaCategorias.getColumnModel().getColumn(1).setPreferredWidth(200);
     }
 
     private void rellenarTablaCategoria() {
