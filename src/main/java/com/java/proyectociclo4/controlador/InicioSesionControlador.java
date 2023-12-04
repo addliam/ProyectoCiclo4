@@ -44,7 +44,7 @@ public class InicioSesionControlador implements ActionListener {
 
             Cliente cl = modelo.autenticar(
                     this.vista.txtUsuario.getText(),
-                    this.vista.txtContrasena.getText());
+                    String.valueOf(this.vista.txtContrasena.getPassword()));
             if (cl == null) {
                 JOptionPane.showMessageDialog(null, "Fallo la autenticacion. Email o password incorrectos.", "Error autenticacion", JOptionPane.ERROR_MESSAGE);
             } else {

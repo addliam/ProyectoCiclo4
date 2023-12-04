@@ -27,7 +27,7 @@ import javax.swing.table.DefaultTableModel;
  * @author ocxros
  */
 public class PanelPrincipalControlador implements ActionListener {
-
+    
     private DaoCategoriaImpl modelo;
     private PanelPrincipal vista;
     private DaoFormularioImpl modelo2;
@@ -35,21 +35,21 @@ public class PanelPrincipalControlador implements ActionListener {
     private DefaultTableModel modeloTablaF;
     private DefaultTableModel modeloTablaC;
     private List<Formulario> formularios;
-
+    
     public Integer getClienteId() {
         return clienteId;
     }
-
+    
     public void setClienteId(Integer clienteId) {
         this.clienteId = clienteId;
     }
-
+    
     public PanelPrincipalControlador(DaoCategoriaImpl modelo, DaoFormularioImpl modelo2, PanelPrincipal vista) {
         this.modelo = modelo;
         this.vista = vista;
         this.modelo2 = modelo2;
     }
-
+    
     public void start() {
         //mapear funcionalidad del boton
         this.iniciarTablas();
@@ -61,19 +61,19 @@ public class PanelPrincipalControlador implements ActionListener {
         this.vista.setLocationRelativeTo(null);
         this.vista.setVisible(true);
     }
-
+    
     private void iniciarTablas() {
         //iniciando tabla formularios
         Object[][] data = null;
         Object[][] data2 = null;
-
+        
         Object[] cols = {"Id", "Direccion", "Url web"};
         //direccion significa slug
         modeloTablaF = new DefaultTableModel(data, cols);
         this.vista.tableFormulario.setModel(modeloTablaF);
         //dimensiones
         this.vista.tableFormulario.getColumnModel().getColumn(0).setPreferredWidth(50);
-        this.vista.tableFormulario.getColumnModel().getColumn(1).setPreferredWidth(150);
+        this.vista.tableFormulario.getColumnModel().getColumn(1).setPreferredWidth(300);
         this.vista.tableFormulario.getColumnModel().getColumn(2).setPreferredWidth(250);
         //iniciando tabla categoria
         Object[] cols2 = {"Id", "Nombre"};
@@ -86,9 +86,9 @@ public class PanelPrincipalControlador implements ActionListener {
         this.vista.tableCategoria.getColumnModel().getColumn(1).setMinWidth(100);
         this.vista.tableCategoria.getColumnModel().getColumn(1).setMaxWidth(150);
         this.vista.tableCategoria.getColumnModel().getColumn(1).setPreferredWidth(180);
-
+        
     }
-
+    
     public void rellenarTablaFormulario() {
         formularios = this.modelo2.leerFormularioPorCliente(clienteId);
         for (Formulario formulario : formularios) {
@@ -96,25 +96,25 @@ public class PanelPrincipalControlador implements ActionListener {
             modeloTablaF.addRow(fila);
         }
     }
-
+    
     public void rellenarTablaCategoria() {
         List<Categoria> categorias = this.modelo.categoriaSelecPorCliente(clienteId);
         for (Categoria categoria : categorias) {
             Object[] fila = {categoria.getCategoriaId(), categoria.getNombre()};
-
+            
             modeloTablaC.addRow(fila);
-
+            
         }
         //como reducir el ancho de las colummas java swing
 
     }
-
+    
     private void funcionalidadTablaFormulario() {
         // Deshabilitar la edición de celdas
         this.vista.tableFormulario.setDefaultEditor(Object.class, null);
         this.vista.tableFormulario.addMouseListener(
                 new MouseAdapter() {
-
+            
             @Override
             public void mouseClicked(MouseEvent e
             ) {
@@ -130,18 +130,20 @@ public class PanelPrincipalControlador implements ActionListener {
         }
         );
     }
-
+    
     private void mostrarReporteErroresControlador(Integer formId) {
         DaoCategoriaImpl daoCategoriaImpl = new DaoCategoriaImpl();
         DaoFormularioImpl daoFormularioImpl = new DaoFormularioImpl();
         DaoRespuestaImpl daoRespuestaImpl = new DaoRespuestaImpl();
         ReporteErrores vistaRE = new ReporteErrores();
         ReporteErroresControlador controladorRE = new ReporteErroresControlador(daoCategoriaImpl, daoFormularioImpl, daoRespuestaImpl, vistaRE);
+        // Setear el clienteId para que sepa como retornar
+        controladorRE.setClienteId(this.clienteId);
         controladorRE.setFormularioId(formId);
         controladorRE.start();
         this.vista.dispose();
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         //saber que boton se presiono

@@ -6,6 +6,7 @@ package com.java.proyectociclo4.vista;
 
 import com.java.proyectociclo4.dao.impl.DaoCategoriaImpl;
 import com.java.proyectociclo4.entity.Categoria;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -143,6 +144,10 @@ public class EditarCategoria extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         actualizarNombre();
+        // mostrar mensaje de exito
+        JOptionPane.showMessageDialog(null, "Se edito el item correctamente", "Proceso exitoso", JOptionPane.INFORMATION_MESSAGE);
+        // cerrar este frame actual
+        this.dispose();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**

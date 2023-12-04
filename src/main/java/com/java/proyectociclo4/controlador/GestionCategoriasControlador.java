@@ -138,6 +138,9 @@ public class GestionCategoriasControlador implements ActionListener {
         if (btn == this.vista.btnCrearNuevaCategoria) {
             clickBtnCrearNuevaCategoria();
             // Lógica para el botón de crear nueva categoría
+            // mensaje de exito
+            JOptionPane.showMessageDialog(null, "Se creo el item correctamente", "Proceso exitoso", JOptionPane.INFORMATION_MESSAGE);
+
         }
         if (btn == this.vista.btnActualizar) {
             rellenarTablaCategoria();
