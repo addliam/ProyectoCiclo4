@@ -7,13 +7,17 @@ package com.java.proyectociclo4.controlador;
 import com.java.proyectociclo4.dao.impl.DaoCategoriaImpl;
 import com.java.proyectociclo4.dao.impl.DaoFormularioCategoriaImpl;
 import com.java.proyectociclo4.dao.impl.DaoFormularioImpl;
+import com.java.proyectociclo4.dao.impl.DaoRespuestaImpl;
 import com.java.proyectociclo4.entity.Categoria;
 import com.java.proyectociclo4.entity.Formulario;
 import com.java.proyectociclo4.vista.CrearFormulario;
 import com.java.proyectociclo4.vista.GestionCategoria;
 import com.java.proyectociclo4.vista.PanelPrincipal;
+import com.java.proyectociclo4.vista.ReporteErrores;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
@@ -30,6 +34,7 @@ public class PanelPrincipalControlador implements ActionListener {
     private Integer clienteId = 1;
     private DefaultTableModel modeloTablaF;
     private DefaultTableModel modeloTablaC;
+    private List<Formulario> formularios;
 
     public Integer getClienteId() {
         return clienteId;
@@ -48,6 +53,7 @@ public class PanelPrincipalControlador implements ActionListener {
     public void start() {
         //mapear funcionalidad del boton
         this.iniciarTablas();
+        this.funcionalidadTablaFormulario();
         this.vista.btnCrearNuevoFormulario.addActionListener(this);
         this.vista.btnModificarCategorias.addActionListener(this);
         this.rellenarTablaCategoria();
@@ -84,9 +90,8 @@ public class PanelPrincipalControlador implements ActionListener {
     }
 
     public void rellenarTablaFormulario() {
-        List<Formulario> formularios = this.modelo2.leerFormularioPorCliente(clienteId);
+        formularios = this.modelo2.leerFormularioPorCliente(clienteId);
         for (Formulario formulario : formularios) {
-            System.out.println(formulario);
             Object[] fila = {formulario.getFormularioId(), formulario.getSlug(), formulario.getUrlWeb()};
             modeloTablaF.addRow(fila);
         }
@@ -104,12 +109,44 @@ public class PanelPrincipalControlador implements ActionListener {
 
     }
 
+    private void funcionalidadTablaFormulario() {
+        // Deshabilitar la edición de celdas
+        this.vista.tableFormulario.setDefaultEditor(Object.class, null);
+        this.vista.tableFormulario.addMouseListener(
+                new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e
+            ) {
+                // Verificar si fue un doble clic (botón izquierdo, doble clic)
+                if (e.getClickCount() == 2) {
+                    // row empieza en 0
+                    int row = vista.tableFormulario.rowAtPoint(e.getPoint());
+                    // calcular formularioId
+                    Integer formId = Integer.valueOf(formularios.get(row).getFormularioId());
+                    mostrarReporteErroresControlador(formId);
+                }
+            }
+        }
+        );
+    }
+
+    private void mostrarReporteErroresControlador(Integer formId) {
+        DaoCategoriaImpl daoCategoriaImpl = new DaoCategoriaImpl();
+        DaoFormularioImpl daoFormularioImpl = new DaoFormularioImpl();
+        DaoRespuestaImpl daoRespuestaImpl = new DaoRespuestaImpl();
+        ReporteErrores vistaRE = new ReporteErrores();
+        ReporteErroresControlador controladorRE = new ReporteErroresControlador(daoCategoriaImpl, daoFormularioImpl, daoRespuestaImpl, vistaRE);
+        controladorRE.setFormularioId(formId);
+        controladorRE.start();
+        this.vista.dispose();
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         //saber que boton se presiono
         JButton btn = (JButton) e.getSource();
         if (btn == this.vista.btnCrearNuevoFormulario) {
-            System.out.println("btnCrearNuevoFormulario");
             //crearformularioControlador
             DaoFormularioImpl daoFormularioImpl = new DaoFormularioImpl();
             DaoFormularioCategoriaImpl daoFormularioCategoriaImpl = new DaoFormularioCategoriaImpl();
@@ -120,7 +157,6 @@ public class PanelPrincipalControlador implements ActionListener {
             controlador.start();
             this.vista.dispose();
         } else if (btn == this.vista.btnModificarCategorias) {
-            System.out.println("btnModificarCategorias");
             DaoCategoriaImpl daoCategoriaImpl = new DaoCategoriaImpl();
             GestionCategoria gestionCategoria = new GestionCategoria();
             GestionCategoriasControlador controlador = new GestionCategoriasControlador(daoCategoriaImpl, gestionCategoria);
