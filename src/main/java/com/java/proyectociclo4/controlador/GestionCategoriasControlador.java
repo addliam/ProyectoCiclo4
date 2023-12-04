@@ -40,6 +40,7 @@ public class GestionCategoriasControlador implements ActionListener {
         //mapear funcionalidad del boton
         this.vista.btnCrearNuevaCategoria.addActionListener(this);
         this.vista.btnActualizar.addActionListener(this);
+        this.vista.btnAtras.addActionListener(this);
         System.out.println("Iniciando");
         //llamando metodos
         this.iniciarTabla();
