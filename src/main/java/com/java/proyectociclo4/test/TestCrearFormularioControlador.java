@@ -12,7 +12,7 @@ import com.java.proyectociclo4.vista.CrearFormulario;
 
 /**
  *
- * @author PC
+ * @author Daygo
  */
 public class TestCrearFormularioControlador {
 

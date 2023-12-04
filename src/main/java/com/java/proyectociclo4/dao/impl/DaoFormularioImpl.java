@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Gaygo
+ * @author Daygo
  */
 public class DaoFormularioImpl implements DaoFormulario {
 
